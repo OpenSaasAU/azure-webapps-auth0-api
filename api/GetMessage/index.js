@@ -1,15 +1,14 @@
-const authHelper = require('../authHelper');
-const auth0 = require('azure-functions-auth')({
-    domain: `https://${process.env.AUTH0_DOMAIN}/`,
-    clientId: process.env.AUTH0_CLIENT_ID,
-    clientSecret: process.env.AUTH0_CLIENT_CERT,
-    algorithms: ['RS256'],
-    audience: `https://${process.env.AUTH0_DOMAIN}/api/v2/`,
-    issuer: `https://${process.env.AUTH0_DOMAIN}/`
-  });
+const jwtValidateDecorator = require('../azure-functions-auth0')({
+  audience: process.env.AUTH0_AUDIENCE,
+  algorithms: ['RS256'],
+  domain: process.env.AUTH0_DOMAIN
+})
 
-  module.exports = auth0(function(context, req) {
+const authHelper = require('../authHelper');
+
+module.exports = jwtValidateDecorator(function(context, req) {
     context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
+    
     if (req.method == "OPTIONS" ) {
       console.log("OPTIONS")
       context.res = {
@@ -24,17 +23,18 @@ const auth0 = require('azure-functions-auth')({
             return authHelper.getUserProfile(access_token, userId)
         })
         .then (({object}) => {
-          console.log('Just Cause', object)
+          console.log('here', object)
           context.res = {
             status: 200,
-            body: object
+              body: JSON.stringify(object),
+              headers: {'Content-Type': 'application/json'}
           }
           return { 
             status: 200,
               body: JSON.stringify(object),
               headers: {'Content-Type': 'application/json'}
            };
-
+          
         }).catch(err => {
           console.error(err);
           return {
@@ -51,7 +51,7 @@ const auth0 = require('azure-functions-auth')({
             status: 400,
             body: 'Something is wrong with the Authorization token'
         }
-        context.done(null, res)
+        context.done(null,res)
     }
   }
   });

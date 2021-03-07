@@ -20,9 +20,10 @@ function getAdminAccessToken() {
         method: 'POST',
         url: `https://${process.env.AUTH0_DOMAIN}/oauth/token`,
         headers: { 'content-type': 'application/json' },
-        body: { client_id: process.env.AUTH0_ADMIN_CLIENT_ID,
+        body: { 
+            client_id: process.env.AUTH0_ADMIN_CLIENT_ID,
             client_secret: process.env.AUTH0_ADMIN_CLIENT_SECRET,
-            audience: `https://${process.env.AUTH0_DOMAIN}/api/v2/`,
+            audience: process.env.AUTH0_AUDIENCE,
             grant_type: 'client_credentials'
         },
         json: true
