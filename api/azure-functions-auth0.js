@@ -17,7 +17,8 @@ const getJwtValidationError = (err, location, secret) => {
       fullerr: JSON.stringify(err),
       location: location,
       secret: secret
-    }
+    },
+    headers: {'Content-Type': 'application/json'}
   };
 };
 
