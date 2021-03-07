@@ -1,4 +1,4 @@
-# Base on the Auth0 React SDK Sample Application
+# Based on the Auth0 React SDK Sample Application
 
 Deployed static web app demo [here](https://auth0-webapp-test.opensaas.com.au/)... More doco to come...
 
