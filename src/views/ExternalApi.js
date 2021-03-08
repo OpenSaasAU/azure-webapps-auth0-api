@@ -6,7 +6,7 @@ import { getConfig } from "../config";
 import Loading from "../components/Loading";
 
 export const ExternalApiComponent = () => {
-  const { apiOrigin = `${process.env.REACT_APP_API_URL}`, audience } = getConfig();
+  const { apiOrigin = process.env.REACT_APP_API_URL, audience } = getConfig();
 
   const [state, setState] = useState({
     showResult: false,
@@ -58,7 +58,7 @@ export const ExternalApiComponent = () => {
     try {
       const token = await getAccessTokenSilently();
 
-      const response = await fetch(`${apiOrigin}/GetMessage`, {
+      const response = await fetch(`${apiOrigin}/api/GetMessage`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
