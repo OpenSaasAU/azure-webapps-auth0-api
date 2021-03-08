@@ -2,6 +2,17 @@
 
 Deployed static web app demo [here](https://auth0-webapp-test.opensaas.com.au/)... More doco to come...
 
+Currently using https://github.com/OpenSaasAU/azure-function-auth0-api deployed to Azure Functions for the API due to Issue #1
+
+Requires the following github secrets when delpoying:
+```
+REACT_APP_AUTH0_AUDIENCE: Auth0 audience
+REACT_APP_AUTH0_CLIENT_ID: Auth0 Client ID
+REACT_APP_AUTH0_DOMAIN: Auth0 domain
+REACT_APP_API_URL: URL for Azure Function ie https://<myfunction>.azurewebsites.net/api - The function called is then /GetMessage
+```
+
+# Original Auth0 React Docs
 This sample demonstrates the integration of [Auth0 React SDK](https://github.com/auth0/auth0-react) into a React application created using [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html). The sample is a companion to the [Auth0 React SDK Quickstart](https://auth0.com/docs/quickstart/spa/react).
 
 This sample demonstrates the following use cases:
