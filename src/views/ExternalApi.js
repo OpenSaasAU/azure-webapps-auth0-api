@@ -6,7 +6,7 @@ import { getConfig } from "../config";
 import Loading from "../components/Loading";
 
 export const ExternalApiComponent = () => {
-  const { apiOrigin = "/api", audience } = getConfig();
+  const { apiOrigin = `${process.env.REACT_APP_API_URL}`, audience } = getConfig();
 
   const [state, setState] = useState({
     showResult: false,
