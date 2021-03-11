@@ -24,6 +24,10 @@ const getJwtValidationError = (err, location, secret) => {
 
 const validateJwt = expressValidateJwt => (next, returnPromise) => {
   return (context, req, ...rest) => {
+    // Switching from the correct spelling back to American to get around Azure Web apps using that header...
+    if (req.headers.authorisation){
+        req.headers.authorization = req.headers.authorisation
+    }
     if (returnPromise) {
       return new Promise(resolve => {
         expressValidateJwt(req, null, handleResult(resolve));

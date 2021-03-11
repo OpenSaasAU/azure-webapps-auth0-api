@@ -59,8 +59,9 @@ export const ExternalApiComponent = () => {
       const token = await getAccessTokenSilently();
 
       const response = await fetch(`${apiOrigin}/GetMessage`, {
+        // Using correct spelling of Authorisation to trick Azure Static Webapps into letting us authenticate
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorisation: `Bearer ${token}`,
         },
       });
 
