@@ -120,16 +120,15 @@ export const ExternalApiComponent = () => {
           </Alert>
         )}
 
-        <h1>External API</h1>
+        <h1>Fl0 API</h1>
         <p className="lead">
-          Ping an external API by clicking the button below.
+          Create an membership through the Fl0 API
         </p>
 
         <p>
-          This will call a local API on port 3001 that would have been started
-          if you run <code>npm run dev</code>. An access token is sent as part
-          of the request's `Authorization` header and the API will validate it
-          using the API's audience value.
+          This will call the /new-membership API on Fl0 and return the result. An access token is sent as part
+          of the request's `Authorization` header and the API will validate it using the API's audience value.
+          The membership will be created using the details sent from Auth0.
         </p>
 
         <Button
