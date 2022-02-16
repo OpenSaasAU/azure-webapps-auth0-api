@@ -54,6 +54,7 @@ const NavBar = () => {
                 </NavLink>
               </NavItem>
               {isAuthenticated && (
+                <>
                 <NavItem>
                   <NavLink
                     tag={RouterNavLink}
@@ -62,7 +63,8 @@ const NavBar = () => {
                     activeClassName="router-link-exact-active"
                   >
                     External API
-                  </NavLink>
+                  </NavLink></NavItem>
+                  <NavItem>
                 <NavLink
                   tag={RouterNavLink}
                   to="/fl0-api"
@@ -72,6 +74,7 @@ const NavBar = () => {
                   Test Fl0 API
                 </NavLink>
               </NavItem>
+              </>
               )}
             </Nav>
             <Nav className="d-none d-md-block" navbar>
