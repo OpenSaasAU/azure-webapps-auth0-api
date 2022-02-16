@@ -63,7 +63,15 @@ const NavBar = () => {
                   >
                     External API
                   </NavLink>
-                </NavItem>
+                <NavLink
+                  tag={RouterNavLink}
+                  to="/fl0-api"
+                  exact
+                  activeClassName="router-link-exact-active"
+                >
+                  Test Fl0 API
+                </NavLink>
+              </NavItem>
               )}
             </Nav>
             <Nav className="d-none d-md-block" navbar>
