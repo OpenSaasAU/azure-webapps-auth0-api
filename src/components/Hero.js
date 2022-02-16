@@ -9,7 +9,9 @@ const Hero = () => (
 
     <p className="lead">
       This is a sample application that demonstrates an authentication flow for
-      an SPA, using <a href="https://reactjs.org">React.js</a>
+      an SPA, using <a href="https://reactjs.org">React.js</a> with the addition
+      of a <a href="https://fl0.com/">Fl0</a> example API call. Click login to get started.
+      Or you can try the <a href="/external-api">external API</a> or the <a href="/fl0-api">Fl0 API</a>.
     </p>
   </div>
 );
