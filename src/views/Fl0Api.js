@@ -59,16 +59,16 @@ export const ExternalApiComponent = () => {
 
       const response = await fetch('https://api.fl0.com/josh/dev/membership/flows/new-membership', {
         method: 'POST',
-        // Using correct spelling of Authorisation to trick Azure Static Webapps into letting us authenticate
         headers: {
-          Authorisation: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
+          'content-type': 'application/json',
         },
-        body: {
+        body: JSON.stringify({
             "name": user.name,
             "email": user.email,
             "phone": "098988",
             "suburb": "test"
-        }
+        })
       });
 
       const responseData = await response.json();
