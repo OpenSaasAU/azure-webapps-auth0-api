@@ -7,7 +7,7 @@
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
-    "express-jwt": "6.1.0",
+    "express-jwt": "6.1.2",
     "jwks-rsa": "1.12.3",
     "request": "2.88.2"
   },
